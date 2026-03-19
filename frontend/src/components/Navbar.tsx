@@ -62,7 +62,7 @@ export default function Navbar() {
         {user ? (
           <>
             <Link href="/dashboard" className="navbar-icon" title="Dashboard">📊</Link>
-            <button onClick={handleLogout} className="navbar-icon" title="Sign Out">🚪</button>
+            <button onClick={handleLogout} className="btn btn-sm btn-secondary" style={{ padding: '8px 12px', fontSize: '0.8rem' }}>Sign Out</button>
             <Link href="/dashboard" className="navbar-icon" style={{ background: 'var(--green)', color: 'white', fontWeight: 700 }}>
               {user.firstName?.[0] || 'U'}
             </Link>

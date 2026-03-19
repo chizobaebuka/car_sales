@@ -4,6 +4,7 @@ import { formatPrice, conditionLabel } from '@/lib/utils';
 import { getImageUrl } from '@/lib/api';
 
 import { Car, CarImage } from '@/types';
+import Image from 'next/image';
 
 interface CarCardProps {
   car: Car;
@@ -16,7 +17,7 @@ export default function CarCard({ car }: CarCardProps) {
     <div className="car-card">
       <Link href={`/car/${car.id}`}>
         <div className="car-card-image">
-          <img src={getImageUrl(primaryImage?.url)} alt={`${car.year} ${car.make} ${car.model}`} />
+          <Image src={getImageUrl(primaryImage?.url)} alt={`${car.year} ${car.make} ${car.model}`} width={500} height={500} />
           <div className="car-card-badges">
             <span className="badge badge-condition">{conditionLabel(car.condition)}</span>
             {car.verified && <span className="badge badge-verified">✓ Verified Dealer</span>}

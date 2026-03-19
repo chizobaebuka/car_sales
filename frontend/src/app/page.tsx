@@ -7,6 +7,7 @@ import CarCard from '@/components/CarCard';
 import { api } from '@/lib/api';
 
 import { Car } from '@/types';
+import Image from 'next/image';
 
 export default function HomePage() {
   const [featuredCars, setFeaturedCars] = useState<Car[]>([]);
@@ -66,7 +67,7 @@ export default function HomePage() {
             )}
           </div>
           <div className="hero-image">
-            <img src="/images/hero-banner.png" alt="Premium car showroom" />
+            <Image src="/images/hero-banner.png" alt="Premium car showroom" width={500} height={500} />
           </div>
         </div>
       </section>
@@ -152,7 +153,7 @@ export default function HomePage() {
           {categories.map((cat) => (
             <Link href={`/cars?bodyType=${cat.type}`} key={cat.type}>
               <div className="category-card">
-                <img src={cat.img} alt={cat.name} />
+                <Image src={cat.img} alt={cat.name} width={500} height={500} />
                 <h4>{cat.name}</h4>
               </div>
             </Link>
