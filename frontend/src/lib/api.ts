@@ -1,6 +1,9 @@
 import { User, Car, Lead, DashboardStats, AuthResponse, CarListResponse, LoginPayload, RegisterPayload } from '@/types';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4404/api';
+// The base URL for the backend server
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4404';
+// The URL for API requests
+const API_URL = `${BASE_URL}/api`;
 
 async function fetchApi<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
@@ -56,5 +59,5 @@ export const api = {
 export const getImageUrl = (path: string) => {
   if (!path) return '/images/sedan.png';
   if (path.startsWith('http')) return path;
-  return `http://localhost:4404${path}`;
+  return `${BASE_URL}${path}`;
 };
